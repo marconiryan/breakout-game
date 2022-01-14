@@ -17,8 +17,14 @@ public class Ball extends Entity{
         setDefaultValues();
     }
     public void setDefaultValues(){
-        this.x = 400;
+        this.x = 530;
         this.y = 300;
+    }
+    public int getPosXBall(){
+        return this.x;
+    }
+    public int getPosYBall(){
+        return this.y;
     }
     public void getCollision(int playerX, int playerY){
         int xMin = 0, xMax = 750 - xMin;
@@ -28,7 +34,9 @@ public class Ball extends Entity{
         if(this.x >= xMax || this.x <= xMin){
             speedX *= -1;
         }
-        if(this.y >= yMax || this.y <= yMin){speedY *= -1;}
+        if(this.y >= yMax || this.y <= yMin){
+            speedY *= -1;
+        }
         if(playerXRange && playerYRange){speedY *= -1;}
 
         }
@@ -42,7 +50,6 @@ public class Ball extends Entity{
     }
     public void draw(Graphics2D graphics2D){
         graphics2D.setColor(Color.white);
-        //graphics2D.drawRect(0,0,800,600);
         graphics2D.drawOval(x,y,30,30);
     }
 }

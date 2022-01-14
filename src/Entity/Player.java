@@ -15,9 +15,9 @@ public class Player extends Entity {
         setDefaultValues();
     }
     public void setDefaultValues(){
-        this.x = 300;
+        this.x = 350;
         this.y = 500;
-        speed = 10;
+        speed = 12;
     }
 
     public int getPlayerX(){

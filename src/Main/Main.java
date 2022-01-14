@@ -8,6 +8,7 @@ public class Main {
         window.setVisible(true);
         window.setTitle("Breakout");
         window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        window.setResizable(false);
         window.add(game);
         window.pack();
         game.startGameThread();

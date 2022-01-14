@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Keyboard implements KeyListener {
-    public boolean keyDown = false,keyUp = false, keyRight = false, keyLeft = false, keySpeed= false;
+    public boolean keyDown = false,keyUp = false, keyRight = false, keyLeft = false, keySpeed= false, keyRestart= false;
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -19,6 +19,7 @@ public class Keyboard implements KeyListener {
         if (code == KeyEvent.VK_A){keyLeft = true;}
         if (code == KeyEvent.VK_D){keyRight = true;}
         if (code == KeyEvent.VK_SPACE){keySpeed = true;}
+        if (code == KeyEvent.VK_ENTER){keyRestart = true;}
 
     }
 
@@ -30,5 +31,6 @@ public class Keyboard implements KeyListener {
         if (code == KeyEvent.VK_A){keyLeft = false;}
         if (code == KeyEvent.VK_D){keyRight = false;}
         if (code == KeyEvent.VK_SPACE){keySpeed = false;}
+        if (code == KeyEvent.VK_ENTER){keyRestart = false;}
     }
 }
