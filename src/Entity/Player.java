@@ -1,18 +1,24 @@
 package Entity;
-import Main.Game;
+
 import Main.Keyboard;
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.Objects;
 
 
 public class Player extends Entity {
-    Game gamePlayer;
-    Keyboard keyboardPlayer;
     int x,y;
+    BufferedImage imagePlayer;
 
-    public Player(Game gamePlayer, Keyboard keyboardPlayer){
-        this.gamePlayer = gamePlayer;
-        this.keyboardPlayer = keyboardPlayer;
+    public Player(){
         setDefaultValues();
+        try {
+            imagePlayer = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/Sprites/player.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     public void setDefaultValues(){
         this.x = 350;
@@ -28,8 +34,7 @@ public class Player extends Entity {
     }
 
     public void draw(Graphics2D graphics2D){
-        graphics2D.setColor(Color.CYAN);
-        graphics2D.fillRect(x,y,90,10);
+        graphics2D.drawImage(imagePlayer,x,y,80,14,null);
     }
     public void update(Keyboard keyboardPlayer){
         if (keyboardPlayer.keyRight){x += speed;}
