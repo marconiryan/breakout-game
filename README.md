@@ -77,8 +77,6 @@ public class Keyboard implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
-        if (code == KeyEvent.VK_W){keyUp = true;}
-        if (code == KeyEvent.VK_S){keyDown = true;}
         if (code == KeyEvent.VK_A){keyLeft = true;}
         if (code == KeyEvent.VK_D){keyRight = true;}
         if (code == KeyEvent.VK_SPACE){keySpeed = true;}
@@ -89,8 +87,6 @@ public class Keyboard implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         int code = e.getKeyCode();
-        if (code == KeyEvent.VK_W){keyUp = false;}
-        if (code == KeyEvent.VK_S){keyDown = false;}
         if (code == KeyEvent.VK_A){keyLeft = false;}
         if (code == KeyEvent.VK_D){keyRight = false;}
         if (code == KeyEvent.VK_SPACE){keySpeed = false;}
