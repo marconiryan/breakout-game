@@ -11,7 +11,7 @@
 * Laranja 12 pontos;
 * Vermelho 16 pontos.
 
-~~~
+~~~ Java
  public int update(Ball ball){
         int rangeX = 30;
         int rangeY = 10;
@@ -34,7 +34,7 @@
         return 0;
     }
 ~~~
-~~~
+~~~ Java
 public void updateScore(int value){
         score += value * 4;
     }
@@ -42,7 +42,7 @@ public void updateScore(int value){
 
 ## 
 #### A cada nivel a velocidade da bola aumenta em 1.5x.
-~~~ 
+~~~ Java
 public void updateLevel(ArrayList<Blocks> blocks, Game game, Ball ball){
     if(this.score == level * 960){
         level++;
@@ -50,12 +50,12 @@ public void updateLevel(ArrayList<Blocks> blocks, Game game, Ball ball){
         game.drawBlocks();
         ball.updateSpeed(1.5);
     }
-~~~
+~~~ 
 ## 
 #### O jogador pode deixar a bola cair no máximo três vezes, caso contrário o jogo se encerra.
 <img src="https://github.com/marconiryan/breakout-game/blob/master/screenshot/gameover.PNG" width="600" height="400" />
 
-~~~
+~~~ Java
 public boolean GameOver(Ball ball){
         if(ball.getPosYBall() > 650){
             lostLife++;
@@ -71,7 +71,7 @@ public boolean GameOver(Ball ball){
 * **Enter** Reinicia o jogo.
 ##
 #### Implementação do teclado
-~~~
+~~~ Java
 public class Keyboard implements KeyListener {
    [...]
     @Override
@@ -93,15 +93,15 @@ public class Keyboard implements KeyListener {
         if (code == KeyEvent.VK_ENTER){keyRestart = false;}
     }
 }
-~~~
+~~~ 
 #### Movimentação do jogador
-~~~
+~~~ Java
 public void update(Keyboard keyboardPlayer){
         if (keyboardPlayer.keyRight){x += speed;}
         else if (keyboardPlayer.keyLeft){x -= speed;}
-~~~
+~~~ 
 #### Aceleração da bola
-~~~
+~~~ Java
 public void update(int coordX, int coordY){
         getCollision(coordX,coordY);
         double speedUp = 0;
@@ -110,7 +110,7 @@ public void update(int coordX, int coordY){
         this.y += speedY + speedUp * speedY;
 ~~~
 #### Reiniciar o jogo
-~~~
+~~~ Java
 public void restartGame(){
         if(keyboard.keyRestart){
             if(information.GameOver(ball)){
